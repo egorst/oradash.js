@@ -1,0 +1,10 @@
+= MOATS  in 'blessed' interface                                                                                                                                                                 
+Egor Starostin <egorst@gmail.com>                                                                                                                                                               
+
+MOATS (http://www.oracle-developer.net/content/utilities/moats.zip?p=1.06) in 'blessed' interface                                                                                               
+
+=== Requirements                                                                                                                                                                                
+
+* node.js                                                                                                                                                                                       
+* oracledb (node.js driver for Oracle)                                                                                                                                                          
+* blessed.contrib                           
