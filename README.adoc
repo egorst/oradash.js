@@ -1,7 +1,7 @@
-= MOATS  in blessed interface
+= Oracle Dashboard in blessed interface
 Egor Starostin <egorst@gmail.com>
 
-MOATS (http://www.oracle-developer.net/content/utilities/moats.zip?p=1.06) in blessed interface
+Inspired by MOATS (http://www.oracle-developer.net/content/utilities/moats.zip?p=1.06) and SQL Dashboard (https://jagjeet.wordpress.com/2013/12/20/sql-dashboard-v2)
 
 === Requirements
 
