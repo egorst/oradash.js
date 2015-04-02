@@ -1,4 +1,4 @@
-// MOATS ( http://www.oracle-developer.net/content/utilities/moats.zip?p=1.06 ) in blessed interface 
+// Oracle Dashboard in blessed
 //
 // egorst@gmail.com
 
@@ -16,7 +16,7 @@ var screen = blessed.screen({
     smartCSR: true
 });
 
-screen.title = 'MOATS';
+screen.title = 'Oracle Dashboard';
 
 var box = blessed.box({
     width: '60%',
