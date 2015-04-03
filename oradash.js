@@ -35,10 +35,11 @@ box.focus;
 
 function selectData(err,connection) {
     if (err) { console.error(err.message); return; }
-    connection.execute("select sys_context('userenv','instance_name') from dual",displayData);
+//    connection.execute("select sys_context('userenv','instance_name') from dual",displayData);
+    connection.execute("select value from gv$sysmetric where metric_name='Consistent Read Gets Per Sec' and round(intsize_csec/100)=15",displayData);
     function displayData(err,result) {
         if (err) { console.error(err.message); return; }
-        box.setContent('Connected to {bold}'+result.rows[0][0]+'{/bold}');
+        box.setContent('Consistent Read Gets Per Sec (last 15 sec) is {bold}'+result.rows[0][0]+'{/bold}');
         screen.render();
     }
 }
