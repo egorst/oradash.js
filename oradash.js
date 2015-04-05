@@ -18,20 +18,25 @@ var screen = blessed.screen({
 
 screen.title = 'Oracle Dashboard';
 
-var box = blessed.box({
+var boxsysmetric = blessed.box({
     width: '60%',
     height: '20%',
     tags: true,
     border: {
         type: 'line'
     }
+//    ,style: {
+//        hover: {
+//            bg: 'green'
+//        }
+//    }
 });
 
-screen.append(box);
+screen.append(boxsysmetric);
 
 screen.key(['escape','q'], function (ch,key) { return process.exit(0); });
 
-box.focus;
+boxsysmetric.focus;
 
 var timer = 0;
 
@@ -47,10 +52,11 @@ function selectData(err,connection) {
             cntnt    += "'"+result.rows[1][0]+"': {bold}"+result.rows[1][1].toFixed(4)+'{/bold}'+"\n";
             cntnt    += "'"+result.rows[2][0]+"': {bold}"+result.rows[2][1].toFixed(4)+'{/bold}'+"\n";
             cntnt    += "'"+result.rows[3][0]+"': {bold}"+result.rows[3][1].toFixed(4)+'{/bold}'+"\n";
-            box.setContent(cntnt);
+            boxsysmetric.setContent(cntnt);
             screen.render();
         }
         selectData(err,connection);
     }, timer
     );
 }
+
