@@ -19,9 +19,11 @@ var screen = blessed.screen({
 
 screen.title = 'Oracle Dashboard';
 
+//var grid = new contrib.grid({rows:60,cols:30, screen: screen})
+
 var tabsysmetric = contrib.table(
     { 
-        keys: true,
+        keys: false,
         label: "instance sysmetrics",
         border: {type: "line"},
         width: 96,
@@ -45,7 +47,19 @@ var boxsysmetric = blessed.box({
 //    }
 });
 
+var sparkUserIO = contrib.sparkline(
+    { 
+        label: 'DB Time (last 60 minutes)',
+        tags: true,
+        border: {type: 'line'},
+        top: 20,
+        style: {fg: 'lightblue'}
+    }
+);
+
+
 screen.append(tabsysmetric);
+screen.append(sparkUserIO);
 
 screen.key(['escape','q'], function (ch,key) { return process.exit(0); });
 
@@ -87,6 +101,10 @@ function selectData(err,connection) {
             tabsysmetric.setData({
                 headers: ["InstId","OS Load","I/O Mb per Sec","SQL Service Resp Time","UserCalls per Sec"],
                 data: tabdata}
+            );
+            sparkUserIO.setData(
+                ['User I/O'],
+                [[100,0,22,8,1,100,100,15]]
             );
             screen.render();
         }
